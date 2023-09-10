@@ -7,6 +7,7 @@ import (
 
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
+	_ "github.com/golang-migrate/migrate/v4/source/file"
 	"github.com/jmoiron/sqlx"
 	"github.com/ory/dockertest/v3"
 )
@@ -62,7 +63,7 @@ func WithPostgresTag(tag string) PostgresOpt {
 	}
 }
 
-func WithMigrationDir(dir string) PostgresOpt {
+func WithPostgresMigrations(dir string) PostgresOpt {
 	return func(o *postgresOpts) {
 		o.migrationsDir = dir
 	}

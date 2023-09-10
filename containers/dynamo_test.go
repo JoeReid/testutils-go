@@ -7,6 +7,8 @@ import (
 )
 
 func TestDynamoDB(t *testing.T) {
+	t.Parallel()
+
 	db := DynamoDB(t)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
